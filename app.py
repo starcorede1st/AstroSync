@@ -6,9 +6,6 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("index.html")  # or return a string like "Hello, world!"
-
-if __name__ == "__app__":
-    app.run()
     
 def calculate_orbit_degree(birthdate):
     day_of_year = birthdate.timetuple().tm_yday
