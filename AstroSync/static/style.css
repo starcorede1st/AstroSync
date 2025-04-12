@@ -1,0 +1,175 @@
+body {
+  background: #0b0c2a;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 2em;
+}
+
+.container {
+  background: #1e1f4b;
+  border-radius: 12px;
+  padding: 2em;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+input[type="date"],
+button {
+  padding: 0.5em;
+  margin: 1em 0;
+  font-size: 1em;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  background-color: #14ffec;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #0bd1c3;
+}
+canvas {
+  border-radius: 20px;
+  box-shadow: 0 0 20px #14ffec88;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: transparent;
+  display: block;
+  margin: 30px auto;
+
+}
+body.stars {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #ffffff;
+  background: url('https://i.imgur.com/5xjvZTf.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 30px;
+  background: rgba(0, 0, 30, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 0 30px #00f0ff88;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #14ffec;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+input[type="date"],
+input[type="submit"] {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+}
+
+input[type="submit"] {
+  background-color: #14ffec;
+  color: black;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #00bfa6;
+}
+/* Main body and background setup */
+body.stars {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #ffffff;
+  background: black;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Starry sky animation */
+body.stars::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/5xjvZTf.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+}
+
+/* Creating the starry effect using a simple CSS animation */
+.stars::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+  animation: starfield 2s linear infinite;
+}
+
+/* Keyframes for random star movement */
+@keyframes starfield {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+.container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 30px;
+  background: rgba(0, 0, 30, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 0 30px #00f0ff88;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #14ffec;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+input[type="date"],
+input[type="submit"] {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+}
+
+input[type="submit"] {
+  background-color: #14ffec;
+  color: black;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #00bfa6;
+}
