@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AstroSync Result</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🔁 Synced!</h1>
+    <p>Original Birthdate: <strong>{{ original }}</strong></p>
+    <p>Orbital Position: <strong>{{ degree }}°</strong></p>
+    <p>AstroSync Date ({{ current_year }}): <strong>{{ synced }}</strong></p>
+    <canvas id="orbitCanvas" width="600" height="600"></canvas>
+
+  <script>
+const canvas = document.getElementById("orbitCanvas");
+const ctx = canvas.getContext("2d");
+
+const centerX = canvas.width / 2;
+const centerY = canvas.height / 2;
+const radiusX = 140;
+const radiusY = 60;
+
+// Birthday position in degrees from Python
+const birthDegree = {{ degree }};
+const birthRad = (birthDegree - 90) * (Math.PI / 180);
+
+// Earth's position today (calculated in JS)
+const today = new Date();
+const currentDayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
+const currentDegree = (currentDayOfYear / 365.25) * 360;
+const currentRad = (currentDegree - 90) * (Math.PI / 180);
+
+// Draw orbit path
+function drawOrbit() {
+  ctx.beginPath();
+  ctx.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, 2 * Math.PI);
+  ctx.strokeStyle = "#14ffec";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+}
+
+// Draw center sun
+function drawSun() {
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, 20, 0, 2 * Math.PI);
+  ctx.fillStyle = "#ffdd00";
+  ctx.shadowColor = "#ff9900";
+  ctx.shadowBlur = 20;
+  ctx.fill();
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = "black";
+  ctx.font = "16px Arial";
+  ctx.fillText("☀️", centerX - 8, centerY + 5);
+}
+
+// Draw a point on the orbit
+function drawMarker(angleRad, color, label) {
+  const x = centerX + radiusX * Math.cos(angleRad);
+  const y = centerY + radiusY * Math.sin(angleRad);
+
+  ctx.beginPath();
+  ctx.arc(x, y, 6, 0, 2 * Math.PI);
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#fff";
+  ctx.fillText(label, x + 8, y);
+}
+
+// Animate Earth in orbit
+let angleOffset = 0;
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawOrbit();
+  drawSun();
+
+  // 🎂 Your synced position (fixed)
+  drawMarker(birthRad, "#ff6f61", "🎂 New Birthday");
+
+  // 🌍 Today's position (fixed)
+  drawMarker(currentRad, "#00ff7f", "🌍 Today");
+
+  // 🔁 Animated Earth illusion (rotates continuously)
+  const movingRad = (angleOffset - 90) * (Math.PI / 180);
+  drawMarker(movingRad, "#00bfff", "🌎");
+
+  angleOffset += 0.4; // Speed of orbit rotation
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+
+      <p><a href="/">← Try Another</a></p>
+  </div>
+</body>
+</html>
