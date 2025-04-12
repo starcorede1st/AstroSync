@@ -5,7 +5,7 @@ Inspired by a concept mentioned by **Neil deGrasse Tyson** on his podcast, Astro
 
 ## 🚀 Live Demo
 
-🌐 Try it now: [https://astro-sync.onrender.com](https://astro-sync.onrender.com)
+🌐 Try it now: [https://astrosync.onrender.com](https://astrosync.onrender.com)
 
 ## 🔧 Built With
 
