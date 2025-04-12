@@ -29,8 +29,8 @@ astro-sync/ │ ├── main.py # Main Flask application ├── requirement
 ### Installation
 
 ```bash
-git clone https://github.com/starcorede1st/astro-sync.git
-cd astro-sync
+git clone https://github.com/starcorede1st/AstroSync.git
+cd AstroSync
 pip install -r requirements.txt
 python main.py
 Then open your browser and visit http://localhost:5000
